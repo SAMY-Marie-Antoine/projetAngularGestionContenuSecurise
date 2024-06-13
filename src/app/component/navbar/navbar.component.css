@@ -1,0 +1,55 @@
+.navbar {
+    background: #000000;
+    margin-left: 0 !important; /* Assurez-vous qu'il n'y a pas de marge à gauche */
+    margin-right: 0 !important; /* Assurez-vous qu'il n'y a pas de marge à droite */ 
+    height: 80px; /* Hauteur de la navbar ajustée */
+  }
+  
+  .navbar .logo {
+    height: 60px;
+  }
+  
+  .navbar a.nav-link {
+    color: white;
+    transition: color 0.3s;
+  }
+  
+  .navbar a.nav-link.active,
+  .navbar a.nav-link:hover {
+    color: #FF6347; /* Couleur du lien actif ou survolé */
+  }
+  
+  .navbar .form-control {
+    margin-right: 10px;
+  }
+  
+  .navbar .btn-outline-success {
+    color: white;
+    border-color: white;
+  }
+  
+  .navbar .btn-outline-success:hover {
+    background-color: white;
+    color: #000000;
+  }
+  
+  .navbar .btn-outline-primary {
+    color: white;
+    border-color: white;
+  }
+  
+  .navbar .btn-outline-primary:hover {
+    background-color: white;
+    color: #000000;
+  }
+  
+  .navbar .btn-outline-danger {
+    color: white;
+    border-color: white;
+  }
+  
+  .navbar .btn-outline-danger:hover {
+    background-color: white;
+    color: #000000;
+  }
+  

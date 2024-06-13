@@ -7,8 +7,9 @@ import { LoginComponent } from '../app/component/login/login.component';
 import { SignupComponent } from '../app/component/signup/signup.component';
 import { UserComponent } from '../app/component/user/user.component';
 import { HomeComponent } from './component/home/home.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { NavbarComponent } from './component/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -17,8 +18,14 @@ import { HttpClientModule } from '@angular/common/http';
     SignupComponent,
     UserComponent,
     HomeComponent,
+    NavbarComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  imports: [
+    BrowserModule, 
+    AppRoutingModule, 
+    ReactiveFormsModule,
+    FormsModule, 
+    HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })
