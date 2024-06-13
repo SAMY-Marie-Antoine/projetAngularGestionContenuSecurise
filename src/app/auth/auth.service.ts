@@ -24,7 +24,27 @@ export class AuthService {
         this.router.navigate(['/home']);
       });
   }
+  signUp(
+    nom: string,
+    dateDeNaissance: string,
+    email: string,
+    motDePasse: string,
+    confirmMotDePasse: string
+  ) {
+    this.http
+      .post<Utilisateur>(environment.apiUrl + '/utilisateur/inscription', {
+        nom: nom,
+        dateDeNaissance: dateDeNaissance,
+        email: email,
+        motDePasse: motDePasse,
+        confirmMotDePasse: confirmMotDePasse,
+      })
+      .subscribe((resp) => {
+        this.utilisateur = resp;
 
+        this.router.navigate(['/utilisateur/connexion']);
+      });
+  }
   logout() {
     this.utilisateur = undefined;
   }

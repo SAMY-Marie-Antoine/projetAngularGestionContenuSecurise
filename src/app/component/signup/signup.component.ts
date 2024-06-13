@@ -19,7 +19,6 @@ export class SignupComponent {
   inscriptionForm!: FormGroup;
 
   nameCtrl!: FormControl;
-  firstnameCtrl!: FormControl;
   emailCtrl!: FormControl;
   dateDeNaissanceCtrl!: FormControl;
   passwordCtrl!: FormControl;
@@ -31,10 +30,6 @@ export class SignupComponent {
     private signupHttpService: SignupHttpService
   ) {
     this.nameCtrl = this.formBuilder.control('', Validators.required);
-    this.firstnameCtrl = this.formBuilder.control('', [
-      Validators.required,
-      Validators.minLength(5),
-    ]);
     this.emailCtrl = this.formBuilder.control('', Validators.required);
     this.dateDeNaissanceCtrl = this.formBuilder.control('', [
       Validators.required,
@@ -50,7 +45,6 @@ export class SignupComponent {
     ]);
     this.inscriptionForm = this.formBuilder.group({
       name: this.nameCtrl,
-      firstname: this.firstnameCtrl,
       email: this.emailCtrl,
       dateDeNaissance: this.dateDeNaissanceCtrl,
       password: this.passwordCtrl,
@@ -59,12 +53,13 @@ export class SignupComponent {
   }
 
   inscription() {
-    if (this.utilisateurForm) {
-      if (this.utilisateurForm?.id) {
-        this.signupHttpService.create(this.utilisateurForm);
-        console.log('Je suis dans create');
-      }
-      this.utilisateurForm = undefined;
-    }
+    console.log();
+    this.authService.signUp(
+      this.nameCtrl.value,
+      this.emailCtrl.value,
+      this.dateDeNaissanceCtrl.value,
+      this.passwordCtrl.value,
+      this.passwordConfirmCtrl.value
+    );
   }
 }

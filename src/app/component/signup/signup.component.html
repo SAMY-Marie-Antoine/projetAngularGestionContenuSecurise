@@ -17,21 +17,7 @@
           >Nom est obligatoire</span
         >
       </div>
-      <div class="mb-3 mt-3">
-        <label for="firstname" class="form-label">Prénom *:</label>
-        <input
-          type="text"
-          class="form-control"
-          id="firstname"
-          name="firstname"
-          formControlName="firstname"
-        />
-        <span
-          class="text-danger"
-          *ngIf="firstnameCtrl.dirty && firstnameCtrl.hasError('required')"
-          >Prénom est obligatoire</span
-        >
-      </div>
+
       <div class="mb-3 mt-3">
         <label for="email" class="form-label">Email *:</label>
         <input

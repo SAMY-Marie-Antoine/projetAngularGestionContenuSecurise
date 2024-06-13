@@ -3,14 +3,17 @@ import { Injectable } from '@angular/core';
 import { Utilisateur } from '../model/model';
 import { Observable } from 'rxjs';
 import { environment } from '../env/environment';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SignupHttpService {
   private utilisateurs: Array<Utilisateur> = new Array<Utilisateur>();
+  utilisateur: Utilisateur | undefined;
+  router: any;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private route: Router) {
     this.load();
   }
   load() {
@@ -18,7 +21,6 @@ export class SignupHttpService {
       .get<Utilisateur[]>(environment.apiUrl + '/utilisateur/inscription')
       .subscribe((resp) => {
         this.utilisateurs = resp;
-        console.log('je suis dans load');
       });
   }
 
@@ -31,6 +33,5 @@ export class SignupHttpService {
       .subscribe((resp) => {
         this.load();
       });
-    console.log('je suis dans create');
   }
 }

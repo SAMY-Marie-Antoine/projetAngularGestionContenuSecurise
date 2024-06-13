@@ -20,15 +20,14 @@ export class CompteComponent {
 
   nomCtrl!: FormControl;
   descriptionCtrl!: FormControl;
-  emailCtrl!: FormControl;
   dateAjoutCtrl!: FormControl;
   dateMAJCtrl!: FormControl;
   nomUtilisateurPlateformeCtrl!: FormControl;
   urlPlateformeCtrl!: FormControl;
   valeurMotdePassePlateformeCtrl!: FormControl;
+
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthService,
     private compteHttpService: CompteHttpService
   ) {
     this.nomCtrl = this.formBuilder.control('', Validators.required);
@@ -36,7 +35,10 @@ export class CompteComponent {
       Validators.required,
       Validators.minLength(1),
     ]);
-    this.dateAjoutCtrl = this.formBuilder.control('', Validators.required);
+    this.dateAjoutCtrl = this.formBuilder.control(
+      Validators.required,
+      Validators.maxLength(10)
+    );
     this.dateMAJCtrl = this.formBuilder.control('', [
       Validators.required,
       Validators.maxLength(10),
@@ -44,15 +46,15 @@ export class CompteComponent {
 
     this.nomUtilisateurPlateformeCtrl = this.formBuilder.control('', [
       Validators.required,
-      Validators.minLength(9),
+      Validators.minLength(2),
     ]);
     this.urlPlateformeCtrl = this.formBuilder.control('', [
       Validators.required,
-      Validators.minLength(9),
+      Validators.minLength(2),
     ]);
     this.valeurMotdePassePlateformeCtrl = this.formBuilder.control('', [
       Validators.required,
-      Validators.minLength(9),
+      Validators.minLength(2),
     ]);
     this.compteForm = this.formBuilder.group({
       nom: this.nomCtrl,
@@ -66,11 +68,14 @@ export class CompteComponent {
   }
 
   inscription() {
-    if (this.compteForm) {
-      if (this.compte?.id) {
-        this.compteHttpService.create(this.compte);
-      }
-      this.compte = undefined;
-    }
+    this.compteHttpService.create(
+      this.nomCtrl.value,
+      this.descriptionCtrl.value,
+      this.dateAjoutCtrl.value,
+      this.dateMAJCtrl.value,
+      this.nomUtilisateurPlateformeCtrl.value,
+      this.urlPlateformeCtrl.value,
+      this.valeurMotdePassePlateformeCtrl.value
+    );
   }
 }
