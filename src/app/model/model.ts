@@ -1,12 +1,12 @@
 //Classe User du projet java Backend
 export class Utilisateur {
   constructor(
-    private id?: string,
-    private nom?: string,
-    private dateDeNaissance?: string,
-    private email?: string,
-    private motDePasse?: string,
-    private confirmMotDePasse?: string
+    public id?: string,
+    public nom?: string,
+    public dateDeNaissance?: string,
+    public email?: string,
+    public motDePasse?: string,
+    public confirmMotDePasse?: string
   ) {
     this.id = id;
     this.nom = nom;
@@ -19,15 +19,15 @@ export class Utilisateur {
 
 export class Compte {
   constructor(
-    private id?: string,
-    private nom?: string,
-    private description?: string,
-    private dateAjout?: string,
-    private dateMAJ?: string,
-    private nomUtilisateurPlateforme?: string,
-    private urlPlateforme?: string,
-    private valeurMotdePassePlateforme?: string,
-    private cle?: string
+    public id?: string,
+    public nom?: string,
+    public description?: string,
+    public dateAjout?: string,
+    public dateMAJ?: string,
+    public nomUtilisateurPlateforme?: string,
+    public urlPlateforme?: string,
+    public valeurMotdePassePlateforme?: string,
+    public cle?: string
   ) {
     this.id = id;
     this.nom = nom;
@@ -42,12 +42,12 @@ export class Compte {
 }
 export class Note {
   constructor(
-    private id?: string,
-    private nom?: string,
-    private description?: string,
-    private dateAjout?: string,
-    private dateModif?: string,
-    private contenu?: string
+    public id?: string,
+    public nom?: string,
+    public description?: string,
+    public dateAjout?: string,
+    public dateModif?: string,
+    public contenu?: string
   ) {
     this.id = id;
     this.nom = nom;
