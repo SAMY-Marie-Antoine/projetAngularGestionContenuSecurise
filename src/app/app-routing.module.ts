@@ -7,6 +7,7 @@ import { CompteComponent } from './component/compte/compte.component';
 import { GestionCompteComponent } from './component/gestion-compte/gestion-compte.component';
 import { GestionNoteComponent } from './component/gestion-note/gestion-note.component';
 
+
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },

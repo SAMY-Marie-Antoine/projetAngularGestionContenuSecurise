@@ -13,6 +13,7 @@ import { NavbarComponent } from './component/navbar/navbar.component';
 import { CompteComponent } from './component/compte/compte.component';
 import { GestionCompteComponent } from './component/gestion-compte/gestion-compte.component';
 import { GestionNoteComponent } from './component/gestion-note/gestion-note.component';
+import { FooterComponent } from './component/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { GestionNoteComponent } from './component/gestion-note/gestion-note.comp
     CompteComponent,
     GestionCompteComponent,
     GestionNoteComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

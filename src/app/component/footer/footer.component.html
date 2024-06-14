@@ -1,0 +1,27 @@
+<nav class="footer footer-expand-lg footer-dark bg-dark">
+  <div class="container">
+      <a class="footer-brand me-2" routerLink="/home">
+          <img src="assets/logo.png" alt="Logo" class="logo">
+      </a>
+      <div class="footer-nav d-flex flex-column w-100"> <!-- Suppression du bouton de navigation et de la classe collapse -->
+          <ul class="d-flex align-items-center justify-content-center mb-2"> <!-- Ajout de 'd-flex align-items-center justify-content-center' pour centrer les éléments de la liste -->
+              <li class="nav-item me-3"> <!-- Ajout de 'me-3' pour l'espacement -->
+                  <a class="nav-link" routerLink="/home" routerLinkActive="active">Accueil</a>
+              </li>
+              <li class="nav-item me-3">
+                  <a class="nav-link" routerLink="/about" routerLinkActive="active">À propos</a>
+              </li>
+              <li class="nav-item me-3">
+                  <a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact</a>
+              </li>
+          </ul>
+          <hr class="footer-divider"> <!-- Ligne blanche après les liens de navigation -->
+          <div class="d-flex justify-content-between align-items-center"> <!-- Conteneur pour le copyright et Instagram -->
+              <p class="mb-0">© 2024 PassLock</p> <!-- Copyright en bas à gauche -->
+              <a class="nav-link" href="https://www.instagram.com/votre_compte_insta/" target="_blank" class="text-white">
+                  <i class="bi bi-instagram"></i> <!-- Bouton Instagram à droite -->
+              </a>
+          </div>
+      </div>
+  </div>
+</nav>

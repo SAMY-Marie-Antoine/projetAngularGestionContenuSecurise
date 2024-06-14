@@ -11,6 +11,7 @@ export class NavbarComponent {
   userName: string = 'Utilisateur';
   searchQuery: string = '';
 
+  //manière simple de basculer entre deux états connexion et deconnexion
   toggleLogin() {
     this.isLoggedIn = !this.isLoggedIn;
   }

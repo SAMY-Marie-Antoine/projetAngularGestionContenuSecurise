@@ -1,55 +1,64 @@
+/* CSS pour les écrans de taille normale */
 .navbar {
-    background: #000000;
-    margin-left: 0 !important; /* Assurez-vous qu'il n'y a pas de marge à gauche */
-    margin-right: 0 !important; /* Assurez-vous qu'il n'y a pas de marge à droite */ 
-    height: 80px; /* Hauteur de la navbar ajustée */
-  }
-  
-  .navbar .logo {
-    height: 60px;
-  }
-  
-  .navbar a.nav-link {
-    color: white;
-    transition: color 0.3s;
-  }
-  
-  .navbar a.nav-link.active,
-  .navbar a.nav-link:hover {
-    color: #FF6347; /* Couleur du lien actif ou survolé */
-  }
-  
-  .navbar .form-control {
-    margin-right: 10px;
-  }
-  
-  .navbar .btn-outline-success {
-    color: white;
-    border-color: white;
-  }
-  
-  .navbar .btn-outline-success:hover {
-    background-color: white;
-    color: #000000;
-  }
-  
-  .navbar .btn-outline-primary {
-    color: white;
-    border-color: white;
-  }
-  
-  .navbar .btn-outline-primary:hover {
-    background-color: white;
-    color: #000000;
-  }
-  
-  .navbar .btn-outline-danger {
-    color: white;
-    border-color: white;
-  }
-  
-  .navbar .btn-outline-danger:hover {
-    background-color: white;
-    color: #000000;
-  }
-  
+  background: #000000;
+  /*font-size: 16px;*/
+  margin-left: 0 !important; /* Assurez-vous qu'il n'y a pas de marge à gauche */
+  margin-right: 0 !important; /* Assurez-vous qu'il n'y a pas de marge à droite */ 
+  height: 80px; /* Hauteur de la navbar ajustée */
+  z-index: 1000;
+}
+
+/* CSS pour les écrans de petite taille (par exemple, iPhone 12/13) */
+@media (max-width: 600px) {
+.navbar {
+    height: auto; /* Hauteur flexible en mode mobile */
+}
+}
+
+.navbar .logo {
+  height: 60px;
+}
+
+.navbar a.nav-link {
+  color: white;
+  transition: color 0.3s;
+}
+
+.navbar a.nav-link.active,
+.navbar a.nav-link:hover {
+  color: #FF6347; /* Couleur du lien actif ou survolé */
+}
+
+.navbar .form-control {
+  margin-right: 10px;
+}
+
+.navbar .btn-outline-success {
+  color: white;
+  border-color: white;
+}
+
+.navbar .btn-outline-success:hover {
+  background-color: white;
+  color: #000000;
+}
+
+.navbar .btn-outline-primary {
+  color: white;
+  border-color: white;
+}
+
+.navbar .btn-outline-primary:hover {
+  background-color: white;
+  color: #000000;
+}
+
+.navbar .btn-outline-danger {
+  color: white;
+  border-color: white;
+}
+
+.navbar .btn-outline-danger:hover {
+  background-color: white;
+  color: #000000;
+}
