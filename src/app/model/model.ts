@@ -22,8 +22,8 @@ export class Compte {
     public id?: string,
     public nom?: string,
     public description?: string,
-    public dateAjout?: string,
-    public dateMAJ?: string,
+    public dateAjout?: Date,
+    public dateMAJ?: Date,
     public nomUtilisateurPlateforme?: string,
     public urlPlateforme?: string,
     public valeurMotdePassePlateforme?: string,
@@ -45,8 +45,8 @@ export class Note {
     public id?: string,
     public nom?: string,
     public description?: string,
-    public dateAjout?: string,
-    public dateModif?: string,
+    public dateAjout?: Date,
+    public dateModif?: Date,
     public contenu?: string
   ) {
     this.id = id;

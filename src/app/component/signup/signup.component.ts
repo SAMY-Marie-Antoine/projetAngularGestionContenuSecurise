@@ -15,7 +15,7 @@ import { Utilisateur } from '../../model/model';
   styleUrl: './signup.component.css',
 })
 export class SignupComponent {
-  utilisateurForm?: Utilisateur;
+  //utilisateurForm?: Utilisateur;
   inscriptionForm!: FormGroup;
 
   nameCtrl!: FormControl;
@@ -26,9 +26,9 @@ export class SignupComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthService,
-    private signupHttpService: SignupHttpService
-  ) {
+    private authService: AuthService
+  ) //private signupHttpService: SignupHttpService
+  {
     this.nameCtrl = this.formBuilder.control('', Validators.required);
     this.emailCtrl = this.formBuilder.control('', Validators.required);
     this.dateDeNaissanceCtrl = this.formBuilder.control('', [
