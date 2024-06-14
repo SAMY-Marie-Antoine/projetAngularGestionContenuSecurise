@@ -12,11 +12,11 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  login(username: string, password: string) {
+  login(email: string, motDePasse: string) {
     this.http
       .post<Utilisateur>(environment.apiUrl + '/utilisateur/connexion', {
-        login: username,
-        password: password,
+        email: email, //email de gauche vient du back API
+        motDePasse: motDePasse,
       })
       .subscribe((resp) => {
         this.utilisateur = resp;

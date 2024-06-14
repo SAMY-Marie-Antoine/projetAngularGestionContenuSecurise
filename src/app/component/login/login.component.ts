@@ -15,26 +15,26 @@ import { AuthService } from '../../auth/auth.service';
 export class LoginComponent {
   loginForm!: FormGroup;
 
-  usernameCtrl!: FormControl;
-  passwordCtrl!: FormControl;
+  emailCtrl!: FormControl;
+  motDePasseCtrl!: FormControl;
 
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService
   ) {
-    this.usernameCtrl = this.formBuilder.control('', Validators.required);
-    this.passwordCtrl = this.formBuilder.control('', [
+    this.emailCtrl = this.formBuilder.control('', Validators.required);
+    this.motDePasseCtrl = this.formBuilder.control('', [
       Validators.required,
       Validators.minLength(5),
     ]);
 
     this.loginForm = this.formBuilder.group({
-      username: this.usernameCtrl,
-      password: this.passwordCtrl,
+      email: this.emailCtrl,
+      motDePasse: this.motDePasseCtrl,
     });
   }
 
   connexion() {
-    this.authService.login(this.usernameCtrl.value, this.passwordCtrl.value);
+    this.authService.login(this.emailCtrl.value, this.motDePasseCtrl.value);
   }
 }
