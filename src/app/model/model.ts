@@ -3,7 +3,7 @@ export class Utilisateur {
   constructor(
     public id?: string,
     public nom?: string,
-    public dateDeNaissance?: string,
+    public dateDeNaissance?: Date,
     public email?: string,
     public motDePasse?: string,
     public confirmMotDePasse?: string

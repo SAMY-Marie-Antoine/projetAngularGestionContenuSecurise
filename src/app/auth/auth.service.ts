@@ -26,7 +26,7 @@ export class AuthService {
   }
   signUp(
     nom: string,
-    dateDeNaissance: string,
+    dateDeNaissance: Date,
     email: string,
     motDePasse: string,
     confirmMotDePasse: string

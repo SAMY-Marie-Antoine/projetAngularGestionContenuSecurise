@@ -3,25 +3,41 @@
     <div class="card-header text-white bg-primary">Inscription</div>
     <div class="card-body">
       <div class="mb-3 mt-3">
-        <label for="name" class="form-label">Nom *:</label>
+        <label for="nom" class="form-label">Nom *:</label>
         <input
           type="text"
           class="form-control"
-          id="name"
-          name="name"
-          formControlName="name"
+          id="nom"
+          name="nom"
+          formControlName="nom"
         />
         <span
           class="text-danger"
-          *ngIf="nameCtrl.dirty && nameCtrl.hasError('required')"
+          *ngIf="nomCtrl.dirty && nomCtrl.hasError('required')"
           >Nom est obligatoire</span
         >
       </div>
-
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="dateDeNaissance" class="form-label">dateDeNaissance *:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="dateDeNaissance"
+        name="dateDeNaissance"
+        formControlName="dateDeNaissance"
+      />
+      <span
+        class="text-danger"
+        *ngIf="
+          dateDeNaissanceCtrl.dirty && dateDeNaissanceCtrl.hasError('required')
+        "
+        >Date de naissance est obligatoire</span
+      >
       <div class="mb-3 mt-3">
         <label for="email" class="form-label">Email *:</label>
         <input
-          type="text"
+          type="email"
           class="form-control"
           id="email"
           name="email"
@@ -33,68 +49,50 @@
           >L'email est obligatoire</span
         >
       </div>
-      <div class="mb-3 mt-3">
-        <label for="dateDeNaissance" class="form-label"
-          >dateDeNaissance *:</label
-        >
-        <input
-          type="text"
-          class="form-control"
-          id="dateDeNaissance"
-          name="dateDeNaissance"
-          formControlName="dateDeNaissance"
-        />
-        <span
-          class="text-danger"
-          *ngIf="
-            dateDeNaissanceCtrl.dirty &&
-            dateDeNaissanceCtrl.hasError('required')
-          "
-          >Date de naissance est obligatoire</span
-        >
-      </div>
       <div class="mb-3">
-        <label for="password" class="form-label">Password *:</label>
+        <label for="motDePasse" class="form-label">Mot de passe *:</label>
         <input
           type="password"
           class="form-control"
-          id="password"
-          name="password"
-          formControlName="password"
+          id="motDePasse"
+          name="motDePasse"
+          formControlName="motDePasse"
         />
         <span
           class="text-danger"
-          *ngIf="passwordCtrl.dirty && passwordCtrl.hasError('required')"
+          *ngIf="motDePasseCtrl.dirty && motDePasseCtrl.hasError('required')"
           >Le mot de passe est obligatoire</span
         >
         <span
           class="text-danger"
-          *ngIf="passwordCtrl.dirty && passwordCtrl.hasError('minlength')"
+          *ngIf="motDePasseCtrl.dirty && motDePasseCtrl.hasError('minlength')"
           >Le mot de passe doit avoir au moins 9 caractères</span
         >
       </div>
       <div class="mb-3">
-        <label for="password" class="form-label">Password Confirm:</label>
+        <label for="confirmMotDePasse" class="form-label"
+          >Password Confirm:</label
+        >
         <input
           type="password"
           class="form-control"
-          id="passwordConfirm"
-          name="passwordConfirm"
-          formControlName="passwordConfirm"
+          id="confirmMotDePasse"
+          name="confirmMotDePasse"
+          formControlName="confirmMotDePasse"
         />
         <span
           class="text-danger"
           *ngIf="
-            passwordConfirmCtrl.dirty &&
-            passwordConfirmCtrl.hasError('required')
+            confirmMotDePasseCtrl.dirty &&
+            confirmMotDePasseCtrl.hasError('required')
           "
           >Le mot de passe est obligatoire</span
         >
         <span
           class="text-danger"
           *ngIf="
-            passwordConfirmCtrl.dirty &&
-            passwordConfirmCtrl.hasError('minlength')
+            confirmMotDePasseCtrl.dirty &&
+            confirmMotDePasseCtrl.hasError('minlength')
           "
           >Le mot de passe doit avoir au moins 9 caractères</span
         >

@@ -18,48 +18,47 @@ export class SignupComponent {
   //utilisateurForm?: Utilisateur;
   inscriptionForm!: FormGroup;
 
-  nameCtrl!: FormControl;
+  nomCtrl!: FormControl;
   emailCtrl!: FormControl;
   dateDeNaissanceCtrl!: FormControl;
-  passwordCtrl!: FormControl;
-  passwordConfirmCtrl!: FormControl;
+  motDePasseCtrl!: FormControl;
+  confirmMotDePasseCtrl!: FormControl;
 
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthService
-  ) //private signupHttpService: SignupHttpService
-  {
-    this.nameCtrl = this.formBuilder.control('', Validators.required);
+    private authService: AuthService //private signupHttpService: SignupHttpService
+  ) {
+    this.nomCtrl = this.formBuilder.control('', Validators.required);
     this.emailCtrl = this.formBuilder.control('', Validators.required);
     this.dateDeNaissanceCtrl = this.formBuilder.control('', [
       Validators.required,
       Validators.maxLength(10),
     ]);
-    this.passwordCtrl = this.formBuilder.control('', [
+    this.motDePasseCtrl = this.formBuilder.control('', [
       Validators.required,
       Validators.minLength(9),
     ]);
-    this.passwordConfirmCtrl = this.formBuilder.control('', [
+    this.confirmMotDePasseCtrl = this.formBuilder.control('', [
       Validators.required,
       Validators.minLength(9),
     ]);
     this.inscriptionForm = this.formBuilder.group({
-      name: this.nameCtrl,
+      nom: this.nomCtrl,
       email: this.emailCtrl,
       dateDeNaissance: this.dateDeNaissanceCtrl,
-      password: this.passwordCtrl,
-      passwordConfirm: this.passwordConfirmCtrl,
+      motDePasse: this.motDePasseCtrl,
+      confirmMotDePasse: this.confirmMotDePasseCtrl,
     });
   }
 
   inscription() {
     console.log();
     this.authService.signUp(
-      this.nameCtrl.value,
+      this.nomCtrl.value,
       this.emailCtrl.value,
       this.dateDeNaissanceCtrl.value,
-      this.passwordCtrl.value,
-      this.passwordConfirmCtrl.value
+      this.motDePasseCtrl.value,
+      this.confirmMotDePasseCtrl.value
     );
   }
 }
