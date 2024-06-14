@@ -1,0 +1,15 @@
+.footer {
+    /*position: absolute;*/
+    position:fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer a {
+    color: white;
+    transition: color 0.3s;
+}
+
+.footer a:hover {
+    color: #FF6347; /* Couleur du lien lorsqu'il est survolé */
+}

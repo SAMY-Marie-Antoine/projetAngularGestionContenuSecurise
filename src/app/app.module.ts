@@ -11,6 +11,7 @@ import { FormsModule, NgModel, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { CompteComponent } from './component/compte/compte.component';
+import { FooterComponent } from './component/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { CompteComponent } from './component/compte/compte.component';
     HomeComponent,
     NavbarComponent,
     CompteComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
