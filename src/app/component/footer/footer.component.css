@@ -1,15 +1,59 @@
+/* CSS pour les écrans de taille normale */
 .footer {
-    /*position: absolute;*/
-    position:fixed;
+    background: #000000;
+    /*font-size: 16px;*/
+    margin-left: 0 !important; /* Assurez-vous qu'il n'y a pas de marge à gauche */
+    margin-right: 0 !important; /* Assurez-vous qu'il n'y a pas de marge à droite */
+    height: auto; /* Hauteur ajustée */
+    z-index: 1000;
+    position: sticky;
     bottom: 0;
     width: 100%;
+    padding: 10px 0; /* Ajout de padding pour le confort visuel */
 }
 
-.footer a {
+.footer .logo {
+    height: 60px;
+}
+
+.footer a.nav-link {
     color: white;
     transition: color 0.3s;
 }
 
-.footer a:hover {
-    color: #FF6347; /* Couleur du lien lorsqu'il est survolé */
+.footer a.nav-link.active,
+.footer a.nav-link:hover {
+    color: #FF6347; /* Couleur du lien actif ou survolé */
+}
+
+.footer p {
+    color: white; /* Assurez-vous que le texte du copyright soit blanc */
+    margin: 0; /* Enlever les marges pour un alignement correct */
+}
+
+.footer-divider {
+    border-color: white; /* Ligne blanche */
+    margin: 10px 0; /* Espace autour de la ligne */
+}
+
+/* CSS pour les écrans de petite taille (par exemple, iPhone 12/13) */
+@media (max-width: 600px) {
+    .footer {
+        height: auto; /* Hauteur flexible en mode mobile */
+        padding: 20px 0; /* Plus de padding en mode mobile */
+    }
+    
+    .footer-nav {
+        flex-direction: column; /* Empile les éléments en mode mobile */
+        align-items: center; /* Centrer les éléments en mode mobile */
+    }
+    
+    .footer .d-flex {
+        flex-direction: column; /* Empile le copyright et Instagram en mode mobile */
+        align-items: center; /* Centrer les éléments en mode mobile */
+    }
+    
+    .footer .d-flex a {
+        margin-top: 10px; /* Espace entre le copyright et Instagram */
+    }
 }

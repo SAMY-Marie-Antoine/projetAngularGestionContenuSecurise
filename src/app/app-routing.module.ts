@@ -5,11 +5,13 @@ import { SignupComponent } from './component/signup/signup.component';
 import { HomeComponent } from './component/home/home.component';
 import { CompteComponent } from './component/compte/compte.component';
 
+
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'compte', component: CompteComponent },
+  { path: 'compte', component: CompteComponent }
+  
 ];
 
 @NgModule({

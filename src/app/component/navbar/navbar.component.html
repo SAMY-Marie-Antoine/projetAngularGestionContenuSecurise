@@ -16,20 +16,20 @@
           <a class="nav-link" routerLink="/compte" routerLinkActive="active">Création Compte</a>
         </li>
         <li class="nav-item" *ngIf="isLoggedIn">
-          <a class="nav-link" routerLink="/account" routerLinkActive="active">Liste des Comptes</a>
+          <a class="nav-link" routerLink="/gestioncompte" routerLinkActive="active">Liste des Comptes</a>
         </li>
         <li class="nav-item" *ngIf="isLoggedIn">
-          <a class="nav-link" routerLink="/notes" routerLinkActive="active">Création Note</a>
+          <a class="nav-link" routerLink="/gestionnote" routerLinkActive="active">Gestion des Notes</a>
         </li>
-        <li class="nav-item" *ngIf="isLoggedIn">
-          <a class="nav-link" routerLink="/notes" routerLinkActive="active">Liste des Notes</a>
-        </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item" *ngIf="isLoggedIn">
+          <a class="nav-link" routerLink="/gestionnote" routerLinkActive="active">Liste des Notes</a>
+        </li> -->
+        <!-- <li class="nav-item">
           <a class="nav-link" routerLink="/about" routerLinkActive="active">À propos</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact</a>
-        </li>
+        </li> -->
       </ul>
       <form class="d-flex ms-auto me-2">
         <input class="form-control me-1" type="search" placeholder="Rechercher..." [(ngModel)]="searchQuery"
