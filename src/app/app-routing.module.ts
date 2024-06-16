@@ -15,6 +15,8 @@ const routes: Routes = [
   { path: 'compte', component: CompteComponent },
   { path: 'gestioncompte', component: GestionCompteComponent },
   { path: 'gestionnote', component: GestionNoteComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '**', redirectTo: '/home' }
 ];
 
 @NgModule({

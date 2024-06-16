@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AuthService {
+
   private utilisateur?: Utilisateur = undefined;
 
   constructor(private http: HttpClient, private router: Router) {}
@@ -24,6 +25,7 @@ export class AuthService {
         this.router.navigate(['/home']);
       });
   }
+  
   signUp(
     nom: string,
     dateDeNaissance: Date,
@@ -45,6 +47,7 @@ export class AuthService {
         this.router.navigate(['/utilisateur/connexion']);
       });
   }
+
   logout() {
     this.utilisateur = undefined;
   }

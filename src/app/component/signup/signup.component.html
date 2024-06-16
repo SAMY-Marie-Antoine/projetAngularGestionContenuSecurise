@@ -1,9 +1,15 @@
+<div class="signup-photo">
+  <div class="form-container">
+    <div class="image-holder">
+      <img src="../../assets/images/cadenas-mot-de-passe-securite-ordinateur.jpg" alt="Login Image" />
+    </div>
 <div class="card mt-3">
+  <h2 class="text-center"><strong>Bienvenue à PassLock</strong></h2>
+  <h3 class="text-center"><strong>Merci de créer votre compte pour accèder à nos services</strong></h3>
   <form [formGroup]="inscriptionForm" (ngSubmit)="inscription()">
-    <div class="card-header text-white bg-primary">Inscription</div>
     <div class="card-body">
       <div class="mb-3 mt-3">
-        <label for="nom" class="form-label">Nom *:</label>
+        <label for="nom" class="form-label">Nom * : </label>
         <input
           type="text"
           class="form-control"
@@ -17,9 +23,9 @@
           >Nom est obligatoire</span
         >
       </div>
-    </div>
+    
     <div class="mb-3 mt-3">
-      <label for="dateDeNaissance" class="form-label">dateDeNaissance *:</label>
+      <label for="dateDeNaissance" class="form-label">dateDeNaissance * : </label>
       <input
         type="text"
         class="form-control"
@@ -34,8 +40,9 @@
         "
         >Date de naissance est obligatoire</span
       >
+    </div>
       <div class="mb-3 mt-3">
-        <label for="email" class="form-label">Email *:</label>
+        <label for="email" class="form-label">Email * : </label>
         <input
           type="email"
           class="form-control"
@@ -50,7 +57,7 @@
         >
       </div>
       <div class="mb-3">
-        <label for="motDePasse" class="form-label">Mot de passe *:</label>
+        <label for="motDePasse" class="form-label">Mot de passe * : </label>
         <input
           type="password"
           class="form-control"
@@ -102,10 +109,12 @@
       <button
         type="submit"
         [disabled]="inscriptionForm.invalid"
-        class="btn btn-success btn-lg"
+        class="btn btn-custom btn-lg btn-signup"
       >
-        <i class="bi bi-check-lg"></i>
+        je m'inscris
       </button>
     </div>
   </form>
+</div>
+  </div>
 </div>
