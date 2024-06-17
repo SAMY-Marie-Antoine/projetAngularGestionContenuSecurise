@@ -1,9 +1,13 @@
+<div class="compte">
+<div class="form-container">
+  <!-- <div class="row justify-content-center"> -->
+    <!-- <div class="col-md-6"> -->
 <div class="card mt-3">
+  <h2 class="text-center">Merci de créer votre Compte en suivant les instructions</h2>
   <form [formGroup]="compteForm" (ngSubmit)="inscription()">
-    <div class="card-header text-white bg-primary">Inscription Compte</div>
     <div class="card-body">
       <div class="mb-3 mt-3">
-        <label for="nom" class="form-label">Nom *:</label>
+        <label for="nom" class="form-label">Nom * : </label>
         <input
           type="text"
           class="form-control"
@@ -18,7 +22,7 @@
         >
       </div>
       <div class="mb-3 mt-3">
-        <label for="description" class="form-label">Description *:</label>
+        <label for="description" class="form-label">Description * : </label>
         <input
           type="text"
           class="form-control"
@@ -29,11 +33,11 @@
         <span
           class="text-danger"
           *ngIf="descriptionCtrl.dirty && descriptionCtrl.hasError('required')"
-          >Prénom est obligatoire</span
+          >Description est obligatoire</span
         >
       </div>
       <div class="mb-3 mt-3">
-        <label for="dateAjout" class="form-label">Date ajout *:</label>
+        <label for="dateAjout" class="form-label">Date ajout * : </label>
         <input
           type="date"
           class="form-control"
@@ -48,7 +52,7 @@
         >
       </div>
       <div class="mb-3 mt-3">
-        <label for="dateMAJ" class="form-label">date de mise à jour *:</label>
+        <label for="dateMAJ" class="form-label">Date de mise à jour * : </label>
         <input
           type="date"
           class="form-control"
@@ -65,7 +69,7 @@
 
       <div class="mb-3">
         <label for="nomUtilisateurPlateforme" class="form-label"
-          >Nom user Plateforme *:</label
+          >Votre nom d'utilisateur sur Plateforme * : </label
         >
         <input
           type="text"
@@ -80,12 +84,12 @@
             nomUtilisateurPlateformeCtrl.dirty &&
             nomUtilisateurPlateformeCtrl.hasError('required')
           "
-          >URL est obligatoire</span
+          >Votre nom d'utilisateur sur Plateforme est obligatoire</span
         >
       </div>
 
       <div class="mb-3">
-        <label for="urlPlateforme" class="form-label">url Plateforme *:</label>
+        <label for="urlPlateforme" class="form-label">Url du Plateforme * : </label>
         <input
           type="text"
           class="form-control"
@@ -98,7 +102,7 @@
           *ngIf="
             urlPlateformeCtrl.dirty && urlPlateformeCtrl.hasError('required')
           "
-          >URL est obligatoire</span
+          >Url du plateforme est obligatoire</span
         >
         <span
           class="text-danger"
@@ -110,7 +114,7 @@
       </div>
       <div class="mb-3">
         <label for="valeurMotdePassePlateforme" class="form-label"
-          >Valeur mot de passe plateforme *:</label
+          >Valeur mot de passe plateforme * : </label
         >
         <input
           type="password"
@@ -125,7 +129,7 @@
             valeurMotdePassePlateformeCtrl.dirty &&
             valeurMotdePassePlateformeCtrl.hasError('required')
           "
-          >valeur mot de passe plateforme est obligatoire
+          >Valeur mot de passe plateforme est obligatoire
         </span>
       </div>
     </div>
@@ -133,10 +137,14 @@
       <button
         type="submit"
         [disabled]="compteForm.invalid"
-        class="btn btn-success btn-lg"
+        class="btn btn-custom btn-lg btn-compte"
       >
-        <i class="bi bi-check-lg"></i>
+        Créer Compte
       </button>
     </div>
   </form>
+</div>
+<!-- </div> -->
+<!-- </div> -->
+</div>
 </div>

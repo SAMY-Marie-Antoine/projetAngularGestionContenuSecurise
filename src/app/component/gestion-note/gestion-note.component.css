@@ -1,0 +1,77 @@
+.gestion-note {
+    background: #ddc3a5; /* Couleur de fond de la section de gestion des comptes */
+    display: flex; /* Utilisation de Flexbox pour centrer le contenu */
+    justify-content: center; /* Centre horizontalement */
+    align-items: flex-start; /* Aligne en haut verticalement */
+    height: 100vh; /* Hauteur de la section sur toute la hauteur de la fenêtre */
+    padding: 20px; /* Ajout de padding autour de la section */
+}
+
+.form-container {
+    background: white; /* Couleur de fond blanche */
+    box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.2); /* Ombre autour du conteneur */
+    border-radius: 10px; /* Bords arrondis */
+    width: 90%; /* Le conteneur prend 90% de la largeur de la page */
+    max-height: 90vh; /* Hauteur maximale du conteneur */
+    padding: 20px; /* Ajout de padding à l'intérieur du conteneur */
+    overflow-y: auto; /* Ajout de défilement vertical si nécessaire */
+    margin: 0 5%; /* Ajout de marges à gauche et à droite */
+}
+
+.recherche {
+    margin-bottom: 20px; /* Espace entre la barre de recherche et le reste du contenu */
+}
+
+.recherche .form-control {
+    width: 200px; /* La barre de recherche prend une largeur de 200px (environ 5 cm) */
+}
+
+.card {
+    padding: 20px; /* Padding autour de la carte */
+}
+
+h3 {
+    color: #ddc3a5;
+}
+.card h2, .card h3 {
+    margin-bottom: 20px; /* Espace sous les titres */
+}
+
+.table-responsive {
+    overflow-x: auto; /* Ajout d'un défilement horizontal si nécessaire */
+}
+
+.table {
+    width: 100%; /* La table prend toute la largeur disponible */
+    border-collapse: collapse; /* Fusionne les bordures des cellules adjacentes */
+}
+
+.table th, .table td {
+    border: 1px solid #ddd; /* Bordures très fines pour les cellules du tableau */
+    padding: 8px; /* Ajout de padding pour les cellules */
+}
+
+.table th {
+    /*background-color: #abc4e7; /* Couleur de fond pour les en-têtes de colonnes */
+    background-color: #f1f7fc;
+    text-align: left; /* Alignement du texte à gauche pour les en-têtes */
+}
+
+.btn-group .btn:not(:last-child) {
+    margin-right: 10px; /* Ajoute une marge à droite de 10px sur tous les boutons sauf le dernier */
+}
+
+.btn-group .btn {
+    border-radius: .25rem !important; /* Ajoute des bords arrondis à tous les boutons */
+}
+
+@media (max-width: 768px) {
+    .form-container {
+        width: 100%; /* Sur les petits écrans, la form-container prend toute la largeur */
+        margin: 0; /* Suppression des marges à gauche et à droite sur les petits écrans */
+    }
+
+    .recherche {
+        text-align: center; /* Centrer le texte de recherche sur les petits écrans */
+    }
+}

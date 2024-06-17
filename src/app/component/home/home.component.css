@@ -3,18 +3,34 @@
   margin: 0 auto;
   padding: 20px;
   text-align: center;
-  /*background-color: #ddc3a5; /* Arrière-plan de la section */
+}
+
+.left-right-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.left-right-container img {
+  max-width: 100%;
+  height: auto;
+  margin-right: 20px;
+}
+
+.text-container {
+  flex: 1;
 }
 
 .home-container .title {
-  color: #e0a96d; /* Couleur du premier titre */
+  color: #e0a96d;
   font-size: 2.5em;
   margin-bottom: 20px;
-  margin-top: 50px; /* Augmentez cette valeur pour plus d'espace */
+  margin-top: 50px;
 }
 
 .home-container p, .home-container ul li {
-  font-size: 1.5em; /* Taille de police plus grande */
+  font-size: 1.5em;
   line-height: 1.6;
 }
 

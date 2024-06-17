@@ -1,0 +1,55 @@
+.compte {
+  background: #ddc3a5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+}
+
+.form-container {
+  display: flex;
+  background: white;
+  box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  max-width: 900px;
+  width: 100%;
+}
+
+.card {
+  flex: 1;
+  padding: 20px;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-footer {
+  /*display: flex;
+  /*justify-content: flex-end;*/ /* Align buttons to the right */
+  /*justify-content: flex-center; /* Align buttons to the right */
+  /*align-items: center;*/
+  text-align: center;
+}
+
+.btn-compte {
+  margin-bottom: 10px; /* Espacement entre le bouton de connexion et les liens */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .form-container {
+      flex-direction: column;
+  }
+
+  .image-holder {
+      display: none;
+  }
+
+  .card {
+      width: 100%;
+      border-radius: 10px;
+  }
+}
