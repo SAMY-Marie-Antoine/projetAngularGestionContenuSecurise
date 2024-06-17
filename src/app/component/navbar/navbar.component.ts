@@ -45,8 +45,8 @@ export class NavbarComponent {
 
   
 
-  onSearch() {
+  /* onSearch() {
     console.log('Recherche :', this.searchQuery);
     // Implémentez ici la logique de recherche
-  }
+  } */
 }

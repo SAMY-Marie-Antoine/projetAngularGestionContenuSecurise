@@ -1,14 +1,25 @@
-.gestion-note {
-    background: #ddc3a5; /* Couleur de fond de la section de gestion des comptes */
+.gestion-compte {
+    position: relative; /* Nécessaire pour contenir l'image de fond en position absolue */
     display: flex; /* Utilisation de Flexbox pour centrer le contenu */
     justify-content: center; /* Centre horizontalement */
     align-items: flex-start; /* Aligne en haut verticalement */
     height: 100vh; /* Hauteur de la section sur toute la hauteur de la fenêtre */
     padding: 20px; /* Ajout de padding autour de la section */
+    background-color: #ddc3a5; /* Couleur de fond de la section de gestion des comptes */
+}
+
+.gestion-compte img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Place l'image derrière le contenu */
 }
 
 .form-container {
-    background: white; /* Couleur de fond blanche */
+    background: rgba(255, 255, 255, 0.9); /* Couleur de fond blanche avec opacité */
     box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.2); /* Ombre autour du conteneur */
     border-radius: 10px; /* Bords arrondis */
     width: 90%; /* Le conteneur prend 90% de la largeur de la page */
@@ -16,6 +27,7 @@
     padding: 20px; /* Ajout de padding à l'intérieur du conteneur */
     overflow-y: auto; /* Ajout de défilement vertical si nécessaire */
     margin: 0 5%; /* Ajout de marges à gauche et à droite */
+    z-index: 1; /* Place le conteneur au-dessus de l'image */
 }
 
 .recherche {
@@ -33,6 +45,7 @@
 h3 {
     color: #ddc3a5;
 }
+
 .card h2, .card h3 {
     margin-bottom: 20px; /* Espace sous les titres */
 }
@@ -52,7 +65,6 @@ h3 {
 }
 
 .table th {
-    /*background-color: #abc4e7; /* Couleur de fond pour les en-têtes de colonnes */
     background-color: #f1f7fc;
     text-align: left; /* Alignement du texte à gauche pour les en-têtes */
 }
@@ -75,3 +87,4 @@ h3 {
         text-align: center; /* Centrer le texte de recherche sur les petits écrans */
     }
 }
+
