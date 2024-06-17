@@ -19,8 +19,8 @@ export class SignupComponent {
   inscriptionForm!: FormGroup;
 
   nomCtrl!: FormControl;
-  emailCtrl!: FormControl;
   dateDeNaissanceCtrl!: FormControl;
+  emailCtrl!: FormControl;
   motDePasseCtrl!: FormControl;
   confirmMotDePasseCtrl!: FormControl;
 
@@ -29,11 +29,11 @@ export class SignupComponent {
     private authService: AuthService //private signupHttpService: SignupHttpService
   ) {
     this.nomCtrl = this.formBuilder.control('', Validators.required);
-    this.emailCtrl = this.formBuilder.control('', Validators.required);
     this.dateDeNaissanceCtrl = this.formBuilder.control('', [
       Validators.required,
       Validators.maxLength(10),
     ]);
+    this.emailCtrl = this.formBuilder.control('', Validators.required);
     this.motDePasseCtrl = this.formBuilder.control('', [
       Validators.required,
       Validators.minLength(9),
@@ -44,8 +44,8 @@ export class SignupComponent {
     ]);
     this.inscriptionForm = this.formBuilder.group({
       nom: this.nomCtrl,
-      email: this.emailCtrl,
       dateDeNaissance: this.dateDeNaissanceCtrl,
+      email: this.emailCtrl,
       motDePasse: this.motDePasseCtrl,
       confirmMotDePasse: this.confirmMotDePasseCtrl,
     });
@@ -55,8 +55,8 @@ export class SignupComponent {
     console.log();
     this.authService.signUp(
       this.nomCtrl.value,
-      this.emailCtrl.value,
       this.dateDeNaissanceCtrl.value,
+      this.emailCtrl.value,
       this.motDePasseCtrl.value,
       this.confirmMotDePasseCtrl.value
     );
