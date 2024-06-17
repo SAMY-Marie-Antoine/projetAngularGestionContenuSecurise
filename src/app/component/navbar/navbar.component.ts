@@ -15,7 +15,10 @@ export class NavbarComponent {
   searchQuery: string = '';
 
   constructor(private authService: AuthService, private router: Router) {
-    this.isLoggedIn = this.authService.isLogged();
+    // Modification : Abonnement à isLoggedIn
+    this.authService.isLoggedIn.subscribe((loggedIn) => {
+      this.isLoggedIn = loggedIn;
+    });  
   }
 
   toggleLogin() {
@@ -29,7 +32,7 @@ export class NavbarComponent {
 
   goToLogin() {
     this.router.navigate(['/login']);
-  }
+  } 
 
   showUtilisateur(): string {
     const utilisateur = this.authService.getUtilisateur();
@@ -40,10 +43,7 @@ export class NavbarComponent {
     return "";
   }
 
-  //manière simple de basculer entre deux états connexion et deconnexion
-  /* toggleLogin() {
-    this.isLoggedIn = !this.isLoggedIn;
-  } */
+  
 
   onSearch() {
     console.log('Recherche :', this.searchQuery);

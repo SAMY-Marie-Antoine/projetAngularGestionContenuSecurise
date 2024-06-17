@@ -1,10 +1,10 @@
 /* CSS pour les écrans de taille normale */
 .navbar {
   background: #000000;
-  /*font-size: 16px;*/
+  font-size: 20px;
   margin-left: 0 !important; /* Assurez-vous qu'il n'y a pas de marge à gauche */
   margin-right: 0 !important; /* Assurez-vous qu'il n'y a pas de marge à droite */ 
-  height: 80px; /* Hauteur de la navbar ajustée */
+  height: 120px; /* Hauteur de la navbar ajustée */
   z-index: 1000;
 }
 
@@ -16,7 +16,7 @@
 }
 
 .navbar .logo {
-  height: 60px;
+  height: 100px;
 }
 
 .navbar a.nav-link {

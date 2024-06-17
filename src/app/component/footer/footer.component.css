@@ -12,8 +12,11 @@
     padding: 10px 0; /* Ajout de padding pour le confort visuel */
 }
 
+
 .footer .logo {
-    height: 60px;
+    height: 100px;
+    margin-top: 20px;
+    /*justify-content: center; /* Centre verticalement */
 }
 
 .footer a.nav-link {
@@ -56,4 +59,5 @@
     .footer .d-flex a {
         margin-top: 10px; /* Espace entre le copyright et Instagram */
     }
+
 }
