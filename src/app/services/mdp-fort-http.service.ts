@@ -21,4 +21,24 @@ export class MdpFortHttpService {
       responseType: 'text' as 'json'
     });
   }
+
+  // Méthode pour tester la robustesse d'un mot de passe
+  testerMotDePasse(motDePasse: string): Observable<boolean> {
+    // Envoie le mot de passe à l'API et attend une réponse de type boolean
+    return this.http.post<boolean>(environment.apiVerifUrl + '/verification/mot-de-passe/force', motDePasse, {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+      responseType: 'json'
+    });
+  }
+
+  // Méthode pour vérifier si un mot de passe a été compromis
+  verifierMotDePasse(motDePasse: string): Observable<boolean> {
+    // Envoie le mot de passe à l'API et attend une réponse de type boolean
+    return this.http.post<boolean>(environment.apiVerifUrl + '/verification/mot-de-passe/compromis', motDePasse, {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+      responseType: 'json'
+    });
+  }
+
+
 }
