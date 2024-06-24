@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../env/environment'; //à mettre environnement-prod
 import { Utilisateur } from '../model/model';
+import { InscriptionUtilisateurResponse } from '../model/inscription-utilisateur-response';
 import { BehaviorSubject, Observable } from 'rxjs'; // Modification : Ajout de BehaviorSubject pour suivre l'état de connexion
 import { Router } from '@angular/router';
 
@@ -11,11 +12,26 @@ import { Router } from '@angular/router';
 export class AuthService {
 
   private utilisateur?: Utilisateur = undefined;
-
+  
   // Modification : Ajout de BehaviorSubject pour suivre l'état de connexion
   private loggedIn = new BehaviorSubject<boolean>(false);
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router) {
+    // Vérifiez l'état de connexion lors de l'initialisation
+    const savedUserItem = localStorage.getItem('currentUser');
+    if (savedUserItem !== null) {
+      const savedUser = JSON.parse(savedUserItem);
+      this.utilisateur = savedUser;
+      this.loggedIn.next(true);
+    }
+    /* const savedUserId = localStorage.getItem('currentUserId');
+    if (savedUserId) {
+      this.getUserById(savedUserId).subscribe((user) => {
+        this.utilisateur = user;
+        this.loggedIn.next(true);
+      });
+    } */
+  }
 
   // Modification : Ajout d'une méthode pour obtenir l'état de connexion
   get isLoggedIn() {
@@ -24,12 +40,17 @@ export class AuthService {
 
   login(email: string, motDePasse: string) {
     this.http
-      .post<Utilisateur>(environment.apiUrl + '/utilisateur/connexion', {
+      .post<InscriptionUtilisateurResponse>(environment.apiUrl + '/utilisateur/connexion', {
         email: email, //email de gauche vient du back API
         motDePasse: motDePasse,
       })
       .subscribe((resp) => {
+        
         this.utilisateur = resp;
+
+        // Enregistrez l'id de l'utilisateur connecté dans le localStorage
+        //localStorage.setItem('currentUserId', resp.id);
+        localStorage.setItem('currentUser', JSON.stringify(resp));
 
         // Modification : Mettre à jour l'état de connexion
         this.loggedIn.next(true);
@@ -61,6 +82,9 @@ export class AuthService {
   }
 
   logout() {
+    // Supprimez l'id de l'utilisateur connecté du localStorage
+    localStorage.removeItem('currentUserId');
+
     this.utilisateur = undefined;
     // Modification : Mettre à jour l'état de connexion
     this.loggedIn.next(false);
@@ -68,6 +92,10 @@ export class AuthService {
 
   isLogged(): boolean {
     return this.utilisateur != undefined;
+  }
+
+  getUserById(id: string): Observable<Utilisateur> {
+    return this.http.get<Utilisateur>(environment.apiUrl + '/api/utilisateur/' + id);
   }
 
   getUtilisateur(): Utilisateur | undefined {
@@ -88,3 +116,4 @@ export class AuthService {
   }
   
 }
+
