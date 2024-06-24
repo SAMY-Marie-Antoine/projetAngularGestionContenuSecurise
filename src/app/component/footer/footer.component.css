@@ -1,6 +1,6 @@
 /* CSS pour les écrans de taille normale */
 .footer {
-    background: #000000;
+    background-color: rgb(0, 0, 0);
     /*font-size: 16px;*/
     margin-left: 0 !important; /* Assurez-vous qu'il n'y a pas de marge à gauche */
     margin-right: 0 !important; /* Assurez-vous qu'il n'y a pas de marge à droite */

@@ -24,10 +24,10 @@ export class GestionCompteHttpService {
     });
   }
 
-  loadByTitle(title: string) {
-    if (title) {
+  loadByNom(nom: string) {
+    if (nom) {
       this.http
-        .get<Compte[]>(environment.apiUrl + '/compte/by-title/' + title)
+        .get<Compte[]>(environment.apiUrl + '/compte/by-title/' + nom)
         .subscribe((resp) => {
           this.comptes = resp;
         });

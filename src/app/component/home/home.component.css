@@ -1,57 +1,97 @@
 .home-container {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh; /* S'assurer que le conteneur couvre toute la hauteur de la fenêtre */
+  width: 100%;
+  background-image: url('/assets/images/security.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Pour étirer le contenu entre la navbar et le footer */
+  position: relative;
+}
+
+/* .home-container {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
   text-align: center;
-}
+  background-image: url('/assets/images/security.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+} */
 
-.left-right-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
+ .home-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.6); /* Couleur blanche avec 60% d'opacité */
+  z-index: -1;
+} 
 
-.left-right-container img {
-  max-width: 100%;
-  height: auto;
-  margin-right: 20px;
-}
 
-.text-container {
+
+/* .text-container {
   flex: 1;
-}
+} */
 
 .home-container .title {
-  color: #e0a96d;
+  color: #FF6347;
   font-size: 2.5em;
   margin-bottom: 20px;
   margin-top: 50px;
+  text-align: center; /* Ajout pour centrer le texte */
 }
 
 .home-container p, .home-container ul li {
-  font-size: 1.5em;
+  
+  font-size: 2em;
   line-height: 1.6;
+  
 }
 
-.home-container h2 {
-  color: #2c3e50;
+/* .home-container h2 {
+  color: #FF6347;
   font-size: 2em;
-  margin-top: 40px;
-}
+  margin-top: 140px;
+  margin-bottom: 30px;
+  text-align: center; 
+  ;
+} */
 
 .home-container p {
-  color: #34495e;
+  margin: 30px;
+  text-align: center; 
+  color: #FFFFFF;
+  margin-bottom: 30px;
+  margin-top: 60px;
 }
 
 .home-container ul {
-  list-style-type: none;
-  padding: 0;
+  color: #FFFFFF;
+  list-style-type: none; /* Enlever les puces des listes */
+  padding: 0; /* Enlever le padding par défaut des listes */
 }
 
 .home-container ul li {
-  color: #34495e;
+  color: #FFFFFF;
   font-size: 1.3em;
-  margin-bottom: 10px;
-  text-align: left;
+  margin-bottom: 30px; /* Ajouter un espace en dessous de chaque élément de la liste */
+  text-align: center;
 }
+
+.text2-container h1 {
+  color: #FF6347;
+  font-size: 2.5em;
+  margin-top: 140px;
+  margin-bottom: 30px;
+  text-align: center; 
+}
+

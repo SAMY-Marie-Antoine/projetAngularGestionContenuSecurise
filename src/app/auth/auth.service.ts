@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../env/environment'; //à mettre environnement-prod
 import { Utilisateur } from '../model/model';
-import { BehaviorSubject } from 'rxjs'; // Modification : Ajout de BehaviorSubject pour suivre l'état de connexion
+import { BehaviorSubject, Observable } from 'rxjs'; // Modification : Ajout de BehaviorSubject pour suivre l'état de connexion
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -77,4 +77,14 @@ export class AuthService {
 
     return undefined;
   }
+
+  sendPasswordResetLink(email: string): Observable<any> {
+    return this.http.post(environment.apiUrl + '/utilisateur/forgot-password', { email });
+  }
+
+  // gérer la réinitialisation du mot de passe
+  resetPassword(resetToken: string, newPassword: string): Observable<any> {
+    return this.http.post(environment.apiUrl + '/utilisateur/reset-password', { resetToken, newPassword });
+  }
+  
 }

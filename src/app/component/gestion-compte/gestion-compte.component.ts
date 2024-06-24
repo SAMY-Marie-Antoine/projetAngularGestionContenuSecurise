@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { GestionCompteHttpService } from '../../services/gestion-compte-http.service';
 
 @Component({
-  selector: 'app-gestion-compte',
+  selector: 'gestion-compte, [gestion-compte]',
   templateUrl: './gestion-compte.component.html',
   styleUrl: './gestion-compte.component.css',
 })
@@ -37,7 +37,7 @@ export class GestionCompteComponent {
   }
 
   search(rech: string) {
-    this.gestionCompteHttpService.loadByTitle(rech);
+    this.gestionCompteHttpService.loadByNom(rech);
   }
 
   goToDetail(id?: string) {

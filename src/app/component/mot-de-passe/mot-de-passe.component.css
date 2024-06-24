@@ -1,0 +1,81 @@
+/* Style pour centrer le titre et espacement */
+.password-container {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 60vh;
+  
+  
+}
+
+.password-container .title h1, 
+.password-container .title h2 {
+  font-size: 3em; /* Augmentation de la taille de la police pour le titre */
+  line-height: 1.5; /* Augmentation de l'interligne pour le titre */
+  font-weight: bold;
+}
+
+/* Style pour les colonnes de mots de passe */
+.password-columns {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  background-image: url('/assets/images/mdpFort.jpg');
+  /*background-size: cover;*/
+}
+
+.password-column {
+  flex: 1;
+  margin: 10px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: 1.2em; /* Augmentation de la taille de la police pour les colonnes */
+  line-height: 1.8; /* Augmentation de l'interligne pour les colonnes */
+}
+
+/* Style pour la deuxième colonne avec arrière-plan gris clair */
+.password-column:nth-child(2) {
+  background-color: #f0f0f0; /* gris clair */
+}
+
+/* Espacement entre le formulaire et le bouton */
+/* .password-column input,
+.password-column button {
+  margin-top: 10px;
+} */
+
+.password-column input {
+
+  margin-right: 30px;
+}
+
+
+/* Style pour les boutons personnalisés */
+.btn-custom {
+  background-color: #FF6347; /* rouge foncé */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+/* Style pour les boutons au survol */
+.btn-custom:hover {
+  background-color: #E54C29; /* rouge un peu plus clair */
+}
+
+/* Responsive avec Bootstrap (exemple de classes Bootstrap utilisées) */
+@media (max-width: 768px) {
+  .password-columns {
+    flex-direction: column;
+    align-items: center;
+  }
+  .password-column {
+    margin: 10px 0;
+  }
+}

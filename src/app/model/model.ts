@@ -57,3 +57,20 @@ export class Note {
     this.contenu = contenu;
   }
 }
+
+export class Verification {
+  constructor(
+    public id?: string,
+    public email?: string,
+    public motDePasse?: string,
+    public forceMotDePasse?: boolean,
+    public motDePasseCompromis?:boolean
+
+  ) {
+    this.id = id;
+    this.email = email;
+    this.motDePasse = motDePasse;
+    this.forceMotDePasse = forceMotDePasse;
+    this.motDePasseCompromis = motDePasseCompromis;
+  }
+}

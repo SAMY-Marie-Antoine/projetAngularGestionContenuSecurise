@@ -6,6 +6,9 @@ import { HomeComponent } from './component/home/home.component';
 import { CompteComponent } from './component/compte/compte.component';
 import { GestionCompteComponent } from './component/gestion-compte/gestion-compte.component';
 import { GestionNoteComponent } from './component/gestion-note/gestion-note.component';
+import { MotDePasseComponent } from './component/mot-de-passe/mot-de-passe.component';
+import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './component/reset-password/reset-password.component';
 
 
 const routes: Routes = [
@@ -15,6 +18,9 @@ const routes: Routes = [
   { path: 'compte', component: CompteComponent },
   { path: 'gestioncompte', component: GestionCompteComponent },
   { path: 'gestionnote', component: GestionNoteComponent },
+  { path: 'motdepasse', component: MotDePasseComponent },
+  { path: 'forgot-password', component: ForgotPasswordComponent},
+  { path: 'reset-password', component: ResetPasswordComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/home' }
 ];

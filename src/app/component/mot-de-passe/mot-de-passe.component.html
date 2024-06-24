@@ -1,0 +1,44 @@
+<div class="password-container">
+  <div class="title">
+    <h1>Découvrez nos services de sécurité de mots de passe</h1>
+    <h2>Gratuits et indispensables !</h2>
+  </div>
+  <br>
+  
+  <div class="password-columns">
+    <!-- Première colonne -->
+    <div class="password-column">
+      <strong>Génération de mots de passe forts : </strong>
+      <br>
+      <br>Créez des mots de passe complexes et uniques en un clic.
+      <br>
+      <button class="btn-custom fort" (click)="genererMotDePasseFort()">Créer Mon mot de passe FORT</button>
+      <br>
+      <span class="generated-password" *ngIf="motDePasseFort">Voici votre mot de passe fort généré : {{ motDePasseFort }}</span>
+    </div>
+
+    <!-- Deuxième colonne -->
+    <div class="password-column">
+      <strong>Testez la robustesse de vos mots de passe : </strong>
+      <br>
+      <br>Assurez-vous que vos mots de passe sont suffisamment forts.
+      <br>
+      <input type="text" [(ngModel)]="passwordToTest" placeholder="Entrez votre mot de passe">
+      <button class="btn-custom test" (click)="testerMotDePasse()">Tester Mon mot de passe</button>
+      <br>
+      <span class="test-result" *ngIf="passwordStrength">La force de votre mot de passe est : {{ passwordStrength }}</span>
+    </div>
+
+    <!-- Troisième colonne -->
+    <div class="password-column">
+      <strong>Vérifiez si votre mot de passe a été compromis : </strong>
+      <br>
+      <br>Assurez-vous que votre mot de passe n'a pas été volé par des pirates.
+      <br>
+      <input type="text" [(ngModel)]="passwordToCheck" placeholder="Entrez votre mot de passe">
+      <button class="btn-custom check" (click)="verifierMotDePasse()">Vérifier Mon mot de passe</button>
+      <br>
+      <span class="check-result" *ngIf="passwordCompromised">Votre mot de passe a été compromis : {{ passwordCompromised }}</span>
+    </div>
+  </div>
+</div>

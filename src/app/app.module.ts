@@ -14,6 +14,9 @@ import { CompteComponent } from './component/compte/compte.component';
 import { GestionCompteComponent } from './component/gestion-compte/gestion-compte.component';
 import { GestionNoteComponent } from './component/gestion-note/gestion-note.component';
 import { FooterComponent } from './component/footer/footer.component';
+import { MotDePasseComponent } from './component/mot-de-passe/mot-de-passe.component';
+import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './component/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +30,9 @@ import { FooterComponent } from './component/footer/footer.component';
     GestionCompteComponent,
     GestionNoteComponent,
     FooterComponent,
+    MotDePasseComponent,
+    ForgotPasswordComponent,
+    ResetPasswordComponent,
   ],
   imports: [
     BrowserModule,
