@@ -3,6 +3,7 @@ import { Compte } from '../model/model';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../env/environment';
+import { AuthService } from '../auth/auth.service';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +11,7 @@ import { environment } from '../env/environment';
 export class GestionCompteHttpService {
   private comptes: Compte[] = new Array<Compte>();
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private authService: AuthService) {
     this.load();
   }
 
@@ -27,7 +28,7 @@ export class GestionCompteHttpService {
   loadByNom(nom: string) {
     if (nom) {
       this.http
-        .get<Compte[]>(environment.apiUrl + '/compte/by-title/' + nom)
+        .get<Compte[]>(environment.apiUrl + '/compte/by-name/' + nom)
         .subscribe((resp) => {
           this.comptes = resp;
         });
@@ -43,14 +44,16 @@ export class GestionCompteHttpService {
   findById(id?: string): Observable<Compte> {
     return this.http.get<Compte>(environment.apiUrl + '/compte/' + id);
   }
-
+ 
   create(compte: Compte): void {
+    console.log(compte);//ajout H 01/7
     this.http
       .post<Compte>(environment.apiUrl + '/compte', compte)
       .subscribe((resp) => {
         this.load();
       });
   }
+
 
   update(compte: Compte): void {
     this.http

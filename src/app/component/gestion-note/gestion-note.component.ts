@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { GestionNoteHttpService } from '../../services/gestion-note-http.service';
 
 @Component({
-  selector: 'app-gestion-note',
+  selector: 'gestion-note, [gestion-note]',
   templateUrl: './gestion-note.component.html',
   styleUrl: './gestion-note.component.css',
 })
@@ -37,7 +37,9 @@ export class GestionNoteComponent {
   }
 
   search(rech: string) {
-    this.gestionNoteHttpService.loadByTitle(rech);
+    // Met à jour la propriété 'recherche' avec la nouvelle valeur
+    this.recherche = rech;
+    this.gestionNoteHttpService.loadByNom(rech);
   }
 
   goToDetail(id?: string) {

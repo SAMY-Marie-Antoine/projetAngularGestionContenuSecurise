@@ -41,6 +41,9 @@ export class LoginComponent implements OnInit {
     if (this.authService.isLogged()) {
       // Si l'utilisateur est déjà connecté, redirigez-le vers la page d'accueil
       this.router.navigate(['/home']);
+    }else{
+      // Si l'utilisateur n'est pas connecté, redirigez-le vers la page de connexion
+      this.router.navigate(['/login']);
     }
   }
 

@@ -18,7 +18,7 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: Router) {
     // Vérifiez l'état de connexion lors de l'initialisation
-    const savedUserItem = localStorage.getItem('currentUser');
+    const savedUserItem = sessionStorage.getItem('currentUser');
     if (savedUserItem !== null) {
       const savedUser = JSON.parse(savedUserItem);
       this.utilisateur = savedUser;
@@ -33,7 +33,7 @@ export class AuthService {
     } */
   }
 
-  // Modification : Ajout d'une méthode pour obtenir l'état de connexion
+  // méthode pour obtenir l'état de connexion
   get isLoggedIn() {
     return this.loggedIn.asObservable();
   }
@@ -50,9 +50,9 @@ export class AuthService {
 
         // Enregistrez l'id de l'utilisateur connecté dans le localStorage
         //localStorage.setItem('currentUserId', resp.id);
-        localStorage.setItem('currentUser', JSON.stringify(resp));
+        sessionStorage.setItem('currentUser', JSON.stringify(resp));
 
-        // Modification : Mettre à jour l'état de connexion
+        // Mettre à jour l'état de connexion
         this.loggedIn.next(true);
 
         this.router.navigate(['/home']);
@@ -83,7 +83,10 @@ export class AuthService {
 
   logout() {
     // Supprimez l'id de l'utilisateur connecté du localStorage
-    localStorage.removeItem('currentUserId');
+    sessionStorage.removeItem('currentUserId');
+
+    // Supprimez également l'utilisateur actuel du localStorage
+    sessionStorage.removeItem('currentUser');
 
     this.utilisateur = undefined;
     // Modification : Mettre à jour l'état de connexion
@@ -113,7 +116,6 @@ export class AuthService {
   // gérer la réinitialisation du mot de passe
   resetPassword(resetToken: string, newPassword: string): Observable<any> {
     return this.http.post(environment.apiUrl + '/utilisateur/reset-password', { resetToken, newPassword });
-  }
-  
+  }  
 }
 

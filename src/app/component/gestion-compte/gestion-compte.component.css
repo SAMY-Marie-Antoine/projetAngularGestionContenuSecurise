@@ -65,6 +65,20 @@ h3 {
     border-radius: .25rem !important; /* Ajoute des bords arrondis à tous les boutons */
 }
 
+/* bouton mdp */
+.show-password-button {
+    margin-left: 10px;
+  }
+  
+/* champs mdp */
+.input-group {
+    overflow: hidden;
+  }
+  
+  .input-group input[type="password"] {
+    border-radius: 10px !important;
+  }
+
 @media (max-width: 768px) {
     .form-container {
         width: 100%; /* Sur les petits écrans, la form-container prend toute la largeur */

@@ -18,6 +18,9 @@ export class Utilisateur {
 }
 
 export class Compte {
+
+  utilisateur?: Utilisateur;//ajout H 01/7
+  
   constructor(
     public id?: string,
     public nom?: string,
@@ -27,7 +30,9 @@ export class Compte {
     public nomUtilisateurPlateforme?: string,
     public urlPlateforme?: string,
     public valeurMotdePassePlateforme?: string,
-    public cle?: string
+    public cle?: string,
+    
+    
   ) {
     this.id = id;
     this.nom = nom;
@@ -38,9 +43,13 @@ export class Compte {
     this.urlPlateforme = urlPlateforme;
     this.valeurMotdePassePlateforme = valeurMotdePassePlateforme;
     this.cle = cle;
+    
   }
 }
 export class Note {
+
+  utilisateur?: Utilisateur;//ajout H 01/7
+  
   constructor(
     public id?: string,
     public nom?: string,
@@ -48,6 +57,7 @@ export class Note {
     public dateAjout?: Date,
     public dateModif?: Date,
     public contenu?: string
+    
   ) {
     this.id = id;
     this.nom = nom;
@@ -55,6 +65,7 @@ export class Note {
     this.dateAjout = dateAjout;
     this.dateModif = dateModif;
     this.contenu = contenu;
+    
   }
 }
 

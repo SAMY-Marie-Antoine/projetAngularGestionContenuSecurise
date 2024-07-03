@@ -45,7 +45,9 @@ export class MotDePasseComponent {
   verifierMotDePasse(): void {
     this.mdpFortService.verifierMotDePasse(this.passwordToCheck).subscribe(
       (isCompromised: boolean) => {
+        
         this.passwordCompromised = isCompromised;  // Met à jour la variable passwordCompromised avec le résultat de la vérification
+        console.log(this.passwordToCheck);
       },
       (error) => {
         console.error('Erreur lors de la vérification du mot de passe', error);

@@ -1,7 +1,7 @@
 <div class="gestion-note"> 
   <div class="form-container">
     <div class="recherche">
-      <label class="form-label">Rechercher une note : </label>
+      <label class="form-label">Rechercher une note par son intitulé : </label>
         <input
         type="text"
         [ngModel]="recherche"
@@ -11,7 +11,7 @@
     </div>
     <div class="card mt-3">
       <h2 class="text-center"><strong>Voici vos différentes notes</strong></h2>
-      <h3 class="text-center"><strong>Vous pouvez créer, modifier ou supprimer vos notes</strong></h3>
+      <h3 class="text-center"><strong>Vous pouvez modifier ou supprimer vos notes</strong></h3>
       <div class="table-responsive">
       <table class="table table-striped mt-3">
         <thead>
@@ -32,7 +32,22 @@
             <td>{{ t.description }}</td>
             <td>{{ t.dateAjout }}</td>
             <td>{{ t.dateModif }}</td>
-            <td>{{ t.contenu }}</td>
+            <!-- <td>{{ t.contenu }}</td> -->
+            <td>
+              <div class="input-group">
+                <input
+                  #passwordField
+                  type="password"
+                  [(ngModel)]="t.contenu"
+                  class="form-control"
+                />
+                <div class="input-group-append">
+                  <button (click)="passwordField.type = passwordField.type === 'password' ? 'text' : 'password'" class="btn btn-outline-secondary show-password-button">
+                    <i class="bi bi-eye"></i>
+                  </button>
+                </div>
+              </div>
+            </td>
             <td>
               <div class="btn-group btn-group-sm">
                 <!-- <button [routerLink]="['/compte', t.id]" class="btn btn-primary">
@@ -53,6 +68,7 @@
         <tfoot>
           <tr>
             <td colspan="4">
+              <h3 class="text-center"><strong>Appuyer sur + pour créer une nouvelle note</strong></h3>
               <button (click)="add()" class="btn btn-outline-secondary">
                 <i class="bi bi-plus"></i>
               </button>

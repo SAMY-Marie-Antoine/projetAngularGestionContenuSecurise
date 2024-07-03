@@ -3,6 +3,7 @@ import { Note } from '../model/model';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../env/environment';
+import { AuthService } from '../auth/auth.service';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +11,7 @@ import { environment } from '../env/environment';
 export class GestionNoteHttpService {
   private notes: Note[] = new Array<Note>();
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private authService: AuthService) {
     this.load();
   }
 
@@ -24,10 +25,10 @@ export class GestionNoteHttpService {
     });
   }
 
-  loadByTitle(title: string) {
-    if (title) {
+  loadByNom(nom: string) {
+    if (nom) {
       this.http
-        .get<Note[]>(environment.apiUrl + '/note/by-title/' + title)
+        .get<Note[]>(environment.apiUrl + '/note/by-name/' + nom)
         .subscribe((resp) => {
           this.notes = resp;
         });
