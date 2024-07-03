@@ -12,6 +12,8 @@ import { Router } from '@angular/router';
 export class AuthService {
 
   private utilisateur?: Utilisateur = undefined;
+  private userId?: string = undefined;
+  
   
   // Modification : Ajout de BehaviorSubject pour suivre l'état de connexion
   private loggedIn = new BehaviorSubject<boolean>(false);
@@ -107,6 +109,16 @@ export class AuthService {
     }
 
     return undefined;
+  }
+
+  // Appelée après la connexion de l'utilisateur
+  setUserId(userId: string): void {
+    this.userId = userId;
+}
+
+  // Appelée pour obtenir l'ID de l'utilisateur connecté
+  getUserId(): string {
+    return this.utilisateur && this.utilisateur.id ? this.utilisateur.id : '';
   }
 
   sendPasswordResetLink(email: string): Observable<any> {

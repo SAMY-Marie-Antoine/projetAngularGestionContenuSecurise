@@ -26,14 +26,13 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let t of list()">
+          <tr *ngFor="let t of list">
             <td>{{ t.id }}</td>
             <td>{{ t.nom }}</td>
             <td>{{ t.description }}</td>
             <!-- Utilisation de la pipe date pour afficher les dates au format français-->
             <td>{{ t.dateAjout | date: 'dd/MM/yyyy, HH:mm' }}</td>
             <td>{{ t.dateModif | date: 'dd/MM/yyyy, HH:mm' }}</td>
-            <!-- <td>{{ t.contenu }}</td> -->
             <td>
               <div class="input-group">
                 <input
@@ -51,11 +50,6 @@
             </td>
             <td>
               <div class="btn-group btn-group-sm">
-                <!-- <button [routerLink]="['/compte', t.id]" class="btn btn-primary">
-                  <i class="bi bi-ticket-detailed"></i> [routerLink]</button> -->
-                <!--button (click)="goToDetail(t.id)" class="btn btn-success">
-                      <i class="bi bi-ticket-detailed"></i> [TS]
-                    </button-->
                 <button (click)="edit(t.id)" class="btn btn-outline-secondary">
                   <i class="bi bi-pen"></i>
                 </button>
@@ -104,6 +98,7 @@
                 [ngModel]="gestionNoteForm.dateAjout | date: 'yyyy-MM-dd'"
                 (ngModelChange)="gestionNoteForm.dateAjout = ($event)"
                 class="form-control"
+                readonly
               />
             </td>
             <td>
@@ -112,6 +107,7 @@
                   [ngModel]="gestionNoteForm.dateModif | date: 'yyyy-MM-dd'"
                   (ngModelChange)="updateDateModif($event)"
                   class="form-control"
+                  readonly
               />
             </td>
             <td>

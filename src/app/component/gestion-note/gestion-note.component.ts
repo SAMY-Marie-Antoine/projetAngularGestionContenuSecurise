@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Note } from '../../model/model';
 import { Router } from '@angular/router';
 import { GestionNoteHttpService } from '../../services/gestion-note-http.service';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'gestion-note, [gestion-note]',
@@ -9,22 +10,35 @@ import { GestionNoteHttpService } from '../../services/gestion-note-http.service
   styleUrl: './gestion-note.component.css',
 })
 export class GestionNoteComponent {
+  
   recherche: string = '';
-
   gestionNoteForm?: Note;
+  notes: Note[] = []; // Liste des notes
 
   constructor(
     private router: Router,
-    private gestionNoteHttpService: GestionNoteHttpService
+    private gestionNoteHttpService: GestionNoteHttpService,
+    private authService: AuthService
   ) {}
+
+  //H 19h
+  ngOnInit(): void {
+    // Obtenez l'ID de l'utilisateur connecté à partir du service d'authentification
+    const userId = this.authService.getUserId(); 
+    this.gestionNoteHttpService.getNotesUpdated().subscribe((notes: Note[]) => {
+      this.notes = notes;
+    });
+    this.gestionNoteHttpService.load();
+  }
 
   save() {
     if (this.gestionNoteForm) {
       if (this.gestionNoteForm?.id) {
-        // modification
+        // modification de la note existante
+        this.gestionNoteForm.dateModif = new Date(); // Mettre à jour la date de modification
         this.gestionNoteHttpService.update(this.gestionNoteForm);
       } else {
-        // création
+        // création d'une nouvelle note
         this.gestionNoteHttpService.create(this.gestionNoteForm);
       }
     }
@@ -32,7 +46,11 @@ export class GestionNoteComponent {
     this.gestionNoteForm = undefined;
   }
 
-  list(): Array<Note> {
+  /* list(): Array<Note> {
+    return this.gestionNoteHttpService.findAll();
+   
+  } */
+  get list(): Array<Note> {
     return this.gestionNoteHttpService.findAll();
   }
 
@@ -47,7 +65,11 @@ export class GestionNoteComponent {
   }
 
   add() {
+    // Initialiser le formulaire avec une nouvelle note et les dates du jour
     this.gestionNoteForm = new Note();
+    const currentDate = new Date();
+    this.gestionNoteForm.dateAjout = currentDate;
+    this.gestionNoteForm.dateModif = currentDate;
   }
 
   /* edit(id?: string) {
@@ -59,7 +81,8 @@ export class GestionNoteComponent {
   } */
 
       edit(id?: string) {
-        this.gestionNoteHttpService.findById(id)
+        this.gestionNoteHttpService
+          .findById(id)
           .subscribe((response: Note | undefined) => {
             if (response) {
               this.gestionNoteForm = response;
