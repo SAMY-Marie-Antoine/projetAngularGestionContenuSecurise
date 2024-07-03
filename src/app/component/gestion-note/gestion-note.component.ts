@@ -50,19 +50,41 @@ export class GestionNoteComponent {
     this.gestionNoteForm = new Note();
   }
 
-  edit(id?: string) {
+  /* edit(id?: string) {
     this.gestionNoteHttpService
       .findById(id)
       .subscribe((response: Note | undefined) => {
         this.gestionNoteForm = response;
       });
-  }
+  } */
 
+      edit(id?: string) {
+        this.gestionNoteHttpService.findById(id)
+          .subscribe((response: Note | undefined) => {
+            if (response) {
+              this.gestionNoteForm = response;
+            }
+          });
+      }
+  
   remove(id?: string) {
     this.gestionNoteHttpService.delete(id);
   }
 
   cancel() {
     this.gestionNoteForm = undefined;
+  }
+
+  // Ajout de vérifications pour éviter les erreurs
+  updateDateAjout(event: string) {
+    if (this.gestionNoteForm) {
+      this.gestionNoteForm.dateAjout = new Date(event);
+    }
+  }
+
+  updateDateModif(event: string) {
+    if (this.gestionNoteForm) {
+      this.gestionNoteForm.dateModif = new Date(event);
+    }
   }
 }

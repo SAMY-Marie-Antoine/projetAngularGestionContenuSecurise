@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -7,7 +7,7 @@ import { LoginComponent } from '../app/component/login/login.component';
 import { SignupComponent } from '../app/component/signup/signup.component';
 import { UserComponent } from '../app/component/user/user.component';
 import { HomeComponent } from './component/home/home.component';
-import { FormsModule, NgModel, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { CompteComponent } from './component/compte/compte.component';
@@ -18,6 +18,10 @@ import { MotDePasseComponent } from './component/mot-de-passe/mot-de-passe.compo
 import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './component/reset-password/reset-password.component';
 
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+
+registerLocaleData(localeFr, 'fr');
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +45,9 @@ import { ResetPasswordComponent } from './component/reset-password/reset-passwor
     FormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'fr' }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

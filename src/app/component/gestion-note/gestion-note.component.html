@@ -30,8 +30,9 @@
             <td>{{ t.id }}</td>
             <td>{{ t.nom }}</td>
             <td>{{ t.description }}</td>
-            <td>{{ t.dateAjout }}</td>
-            <td>{{ t.dateModif }}</td>
+            <!-- Utilisation de la pipe date pour afficher les dates au format français-->
+            <td>{{ t.dateAjout | date: 'dd/MM/yyyy, HH:mm' }}</td>
+            <td>{{ t.dateModif | date: 'dd/MM/yyyy, HH:mm' }}</td>
             <!-- <td>{{ t.contenu }}</td> -->
             <td>
               <div class="input-group">
@@ -100,15 +101,17 @@
             <td>
               <input
                 type="date"
-                [(ngModel)]="gestionNoteForm.dateAjout"
+                [ngModel]="gestionNoteForm.dateAjout | date: 'yyyy-MM-dd'"
+                (ngModelChange)="gestionNoteForm.dateAjout = ($event)"
                 class="form-control"
               />
             </td>
             <td>
               <input
-                type="date"
-                [(ngModel)]="gestionNoteForm.dateModif"
-                class="form-control"
+                  type="date"
+                  [ngModel]="gestionNoteForm.dateModif | date: 'yyyy-MM-dd'"
+                  (ngModelChange)="updateDateModif($event)"
+                  class="form-control"
               />
             </td>
             <td>
