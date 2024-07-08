@@ -1,0 +1,15 @@
+.privacy-policy {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.privacy-policy h1, .privacy-policy h2 {
+    color: #333;
+}
+
+.privacy-policy p {
+    font-size: 16px;
+    line-height: 1.6;
+}

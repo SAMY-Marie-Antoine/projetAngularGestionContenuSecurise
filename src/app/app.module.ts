@@ -17,9 +17,12 @@ import { FooterComponent } from './component/footer/footer.component';
 import { MotDePasseComponent } from './component/mot-de-passe/mot-de-passe.component';
 import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './component/reset-password/reset-password.component';
-
+import { ContactComponent } from './component/contact/contact.component';
+import { AboutComponent } from './component/about/about.component';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
+import { PrivacyPolicyComponent } from './component/privacy-policy/privacy-policy.component';
+
 
 registerLocaleData(localeFr, 'fr');
 @NgModule({
@@ -37,6 +40,9 @@ registerLocaleData(localeFr, 'fr');
     MotDePasseComponent,
     ForgotPasswordComponent,
     ResetPasswordComponent,
+    ContactComponent,
+    AboutComponent,
+    PrivacyPolicyComponent
   ],
   imports: [
     BrowserModule,

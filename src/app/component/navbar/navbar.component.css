@@ -8,6 +8,17 @@
   z-index: 1000;
 }
 
+.navbar a.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.navbar a.navbar-brand .site-name {
+  color: #FF6347; /* Couleur du nom du site */
+  margin-right: 15px; /* Marge à droite du nom du site */
+}
+
+
 /* CSS pour les écrans de petite taille (par exemple, iPhone 12/13) */
 @media (max-width: 600px) {
 .navbar {

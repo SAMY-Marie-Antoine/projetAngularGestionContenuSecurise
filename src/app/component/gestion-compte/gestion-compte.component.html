@@ -16,7 +16,7 @@
       <table class="table table-striped mt-3">
         <thead>
           <tr>
-            <th>Id de compte</th>
+            <!-- <th>Id de compte</th> -->
             <th>Intitulé du compte</th>
             <th>Description</th>
             <th>Date d'ajout</th>
@@ -29,7 +29,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let t of list">
-            <td>{{ t.id }}</td>
+            <!-- <td>{{ t.id }}</td> -->
             <td>{{ t.nom }}</td>
             <td>{{ t.description }}</td>
             <!-- Utilisation de la pipe date pour afficher les dates au format français-->
@@ -74,14 +74,14 @@
             </td>
           </tr>
           <tr *ngIf="gestionCompteForm">
-            <td>
+            <!-- <td>
               <input
                 type="text"
                 [(ngModel)]="gestionCompteForm.id"
                 class="form-control"
                 readonly
               />
-            </td>
+            </td> -->
             <td>
               <input
                 type="text"

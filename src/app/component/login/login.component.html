@@ -52,6 +52,10 @@
             Connexion
           </button>          
         </div>
+        <!-- Ajout du message d'erreur -->
+        <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+          {{ errorMessage }}
+        </div>
         <div class="additional-links mt-3">
           <a routerLink="/forgot-password" class="forgot-password">Mot de passe oublié ?</a><br>
           Je n'ai pas de compte, <a routerLink="/signup" class="signup">je m'inscris.</a>

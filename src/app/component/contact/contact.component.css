@@ -1,0 +1,41 @@
+.contact-container {
+    text-align: center;
+    
+  }
+  
+  .contact-title {
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+  
+  .contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .contact-item {
+    display: flex;
+    align-items: center; /* aligne verticalement les éléments à l'intérieur */
+    justify-content: flex-start; /* aligne horizontalement les éléments à gauche */
+    gap: 10px;
+  }
+
+  .contact-icon {
+    color: #000;
+    /*font-size: 20px;*/
+    display: flex;
+    align-items: center;
+}
+
+  .contact-text {
+    display: flex;
+    align-items: center;
+  }
+  
+  .map-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+  }

@@ -18,6 +18,8 @@ export class LoginComponent implements OnInit {
 
   emailCtrl!: FormControl;
   motDePasseCtrl!: FormControl;
+  // Variable pour stocker le message d'erreur
+  errorMessage: string = '';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -47,7 +49,31 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  connexion() {
+  /* connexion() {
     this.authService.login(this.emailCtrl.value, this.motDePasseCtrl.value);
-  }
+  } */
+
+    connexion() {
+      // Réinitialiser le message d'erreur
+      this.errorMessage = '';
+
+      // Appel au service d'authentification pour se connecter
+      this.authService.login(this.emailCtrl.value, this.motDePasseCtrl.value).subscribe({
+        next: () => {
+          // Redirection vers la page d'accueil en cas de succès
+          this.router.navigate(['/home']);
+        },
+        error: (error) => {
+          // Log de l'erreur pour analyse
+          console.error('Erreur de connexion', error);
+
+          // Affichage du message d'erreur en cas d'échec
+          if (error.status === 401) {
+            this.errorMessage = 'Email ou mot de passe incorrect.';
+          } else {
+            this.errorMessage = 'Une erreur est survenue. Veuillez réessayer plus tard.';
+          }
+        }
+      });
+    }
 }

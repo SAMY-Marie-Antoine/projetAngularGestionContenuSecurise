@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
     <a class="navbar-brand me-2" routerLink="/home">
+      <span class="site-name">PassLock</span>
       <img src="../../assets/images/logo2.jpg" alt="Logo" class="logo">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -15,9 +16,9 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/motdepasse" routerLinkActive="active">Service Mot de passe</a>
         </li>
-        <li class="nav-item" *ngIf="isLoggedIn">
+        <!-- <li class="nav-item" *ngIf="isLoggedIn">
           <a class="nav-link" routerLink="/compte" routerLinkActive="active">Création Compte</a>
-        </li>
+        </li> -->
         <li class="nav-item" *ngIf="isLoggedIn">
           <a class="nav-link" routerLink="/gestioncompte" routerLinkActive="active">Gestion des Comptes</a>
         </li>

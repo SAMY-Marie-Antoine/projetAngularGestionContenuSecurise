@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../env/environment'; //à mettre environnement-prod
 import { Utilisateur } from '../model/model';
 import { InscriptionUtilisateurResponse } from '../model/inscription-utilisateur-response';
-import { BehaviorSubject, Observable } from 'rxjs'; // Modification : Ajout de BehaviorSubject pour suivre l'état de connexion
+import { BehaviorSubject, catchError, Observable, tap, throwError } from 'rxjs'; // Modification : Ajout de BehaviorSubject pour suivre l'état de connexion
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -40,7 +40,7 @@ export class AuthService {
     return this.loggedIn.asObservable();
   }
 
-  login(email: string, motDePasse: string) {
+  /* login(email: string, motDePasse: string) {
     this.http
       .post<InscriptionUtilisateurResponse>(environment.apiUrl + '/utilisateur/connexion', {
         email: email, //email de gauche vient du back API
@@ -59,7 +59,30 @@ export class AuthService {
 
         this.router.navigate(['/home']);
       });
-  }
+  } */
+      login(email: string, motDePasse: string): Observable<any> {
+        return this.http
+          .post<InscriptionUtilisateurResponse>(environment.apiUrl + '/utilisateur/connexion', {
+            email: email, //email de gauche vient du back API
+            motDePasse: motDePasse,
+          })
+          .pipe(
+            tap((resp) => {
+              this.utilisateur = resp;
+    
+              // Enregistrez l'utilisateur connecté dans le sessionStorage
+              sessionStorage.setItem('currentUser', JSON.stringify(resp));
+    
+              // Mettre à jour l'état de connexion
+              this.loggedIn.next(true);
+    
+              this.router.navigate(['/home']);
+            }),
+            catchError((error) => {
+              return throwError(error);
+            })
+          );
+      }
   
   signUp(
     nom: string,

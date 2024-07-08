@@ -26,8 +26,14 @@
       <input type="text" [(ngModel)]="passwordToTest" placeholder="Entrez votre mot de passe">
       <button class="btn-custom test" (click)="testerMotDePasse()">Tester Mon mot de passe</button>
       <br>
-      <span class="test-result" *ngIf="passwordStrength !== null">La force de votre mot de passe est : {{ passwordStrength ? 'Fort' : 'Faible' }}</span>    </div>
-
+      <!-- <span class="test-result" *ngIf="passwordStrength !== null">La force de votre mot de passe est : {{ passwordStrength ? 'Fort' : 'Faible' }}</span>  -->
+      <span class="test-result" *ngIf="passwordStrength !== null">
+        La force de votre mot de passe est : 
+        <span [ngClass]="{'strong-password': passwordStrength, 'weak-password': !passwordStrength}">
+          {{ passwordStrength ? 'Fort' : 'Faible' }}
+        </span>
+      </span>
+    </div>
     <!-- Troisième colonne -->
     <div class="password-column">
       <strong>Vérifiez si votre mot de passe a été compromis : </strong>
@@ -37,7 +43,13 @@
       <input type="text" [(ngModel)]="passwordToCheck" placeholder="Entrez votre mot de passe">
       <button class="btn-custom check" (click)="verifierMotDePasse()">Vérifier Mon mot de passe</button>
       <br>
-      <span class="check-result" *ngIf="passwordCompromised !== null">Votre mot de passe a été compromis : {{ passwordCompromised ? 'Oui' : 'Non' }}</span>
+      <!-- <span class="check-result" *ngIf="passwordCompromised !== null">Votre mot de passe a été compromis : {{ passwordCompromised ? 'Oui' : 'Non' }}</span> -->
+      <span class="check-result" *ngIf="passwordCompromised !== null">
+        Votre mot de passe a été compromis : 
+        <span [ngClass]="{'compromised-password': passwordCompromised, 'safe-password': !passwordCompromised}">
+          {{ passwordCompromised ? 'Oui' : 'Non' }}
+        </span>
+      </span>
     </div>
   </div>
 </div>

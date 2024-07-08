@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { AuthService } from '../../auth/auth.service';
 
+
 @Component({
   selector: 'forgot-password, [forgot-password]',
   templateUrl: './forgot-password.component.html',
@@ -31,7 +32,14 @@ export class ForgotPasswordComponent {
   }
 
   sendResetLink() {
-    this.authService.sendPasswordResetLink(this.emailCtrl.value);
-  }
+    this.authService.sendPasswordResetLink(this.emailCtrl.value)
+    .subscribe(response => {
+      // Gérez la réponse ici
+      console.log(response);
+    }, error => {
+      // Gérez l'erreur ici
+      console.error(error);
+    });
+  } 
 }
 
