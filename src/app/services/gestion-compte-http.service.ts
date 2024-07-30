@@ -23,17 +23,6 @@ export class GestionCompteHttpService {
     return this.comptesUpdated.asObservable();
   }
 
-  // Chargement initial des comptes depuis l'API version matin
-  /* load() {
-    let obs: Observable<Compte[]> = this.http.get<Compte[]>(
-      environment.apiUrl + '/compte'
-    );
-
-    obs.subscribe((resp) => {
-      this.comptes = resp;
-    });
-  } */
-
     // H 3/7 20h
     load() {
       // Obtenez l'ID de l'utilisateur connecté à partir du service d'authentification

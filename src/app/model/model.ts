@@ -21,6 +21,7 @@ export class Compte {
 
   utilisateur?: Utilisateur;//ajout H 01/7
   userId?: string; // Ajout de la propriété userId 3/7 20h
+  showPassword?: boolean = false; 
   
   constructor(
     public id?: string,

@@ -28,7 +28,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let t of list">
+          <tr *ngFor="let t of comptes">
             <!-- <td>{{ t.id }}</td> -->
             <td>{{ t.nom }}</td>
             <td>{{ t.description }}</td>
@@ -46,10 +46,11 @@
                   class="form-control"
                 />
                 <div class="input-group-append">
-                  <button (click)="passwordField.type = passwordField.type === 'password' ? 'text' : 'password'" class="btn btn-outline-secondary show-password-button">
+                  <button (click)="passwordField.type = passwordField.type === 'password' ? 'text' : 'password'" 
+                          class="btn btn-outline-secondary show-password-button">
                     <i class="bi bi-eye"></i>
                   </button>
-                </div>
+                </div> 
               </div>
             </td>
             <td>
